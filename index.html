@@ -8,11 +8,37 @@
     <title>AJ-Wipo</title>
     <link rel="stylesheet" href="./assets/css/AJ-Style.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="./src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <nav class="nav-bar close">
+            <div class="nav-btn">
+                <div id="menu" class="nav-icon"></div>
+            </div>
+            <a data-order=1 href="#inicio" class="nav-item is-active">
+                <div id="home" class="nav-icon"></div>
+                <span class="nav-title">Inicio</span>
+            </a>
+            <a data-order=2 href="#habilidades" class="nav-item">
+                <div id="hability" class="nav-icon"></div>
+                <span class="nav-title">Habilidades</span>
+            </a>
+            <a data-order=3 href="#servicios" class="nav-item">
+                <div id="service" class="nav-icon"></div>
+                <span class="nav-title">Servicios</span>
+            </a>
+            <a data-order=4 href="#proyectos" class="nav-item">
+                <div id="project" class="nav-icon"></div>
+                <span class="nav-title">Proyectos</span>
+            </a>
+            <a data-order=5 href="#contactar" class="nav-item">
+                <div id="contact" class="nav-icon"></div>
+                <span class="nav-title">Contactar</span>
+            </a>
+        </nav>
+    </div>
 </body>
 
 </html>
