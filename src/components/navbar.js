@@ -108,3 +108,52 @@ window.addEventListener("resize", (e) => {
     resizeNav(true);
   }
 });
+
+/*##############################################*/
+
+function observer({ el, perc, toggleClass = false }) {
+  new IntersectionObserver(
+    ([e]) => {
+      if (toggleClass) {
+        el[1].classList.toggle(toggleClass, e.intersectionRatio < perc);
+      } else {
+        if (e.intersectionRatio > perc) {
+          if (navbarStyle === "fixed") {
+            navMove(el[1], false);
+          } else {
+            navMove(el[1], true);
+          }
+        }
+      }
+    },
+    { threshold: [perc] }
+  ).observe(el[0]);
+}
+
+observer({
+  el: [$("#inicio"), $("header")],
+  perc: 0.8,
+  toggleClass: "is-fixed",
+});
+
+observer({
+  el: [$("#inicio"), $("#home").parentNode],
+  perc: 0.6,
+});
+
+observer({
+  el: [$("#habilidades"), $("#hability").parentNode],
+  perc: 0.6,
+});
+observer({
+  el: [$("#servicios"), $("#service").parentNode],
+  perc: 0.6,
+});
+observer({
+  el: [$("#proyectos"), $("#project").parentNode],
+  perc: 0.6,
+});
+observer({
+  el: [$("#contactar"), $("#contact").parentNode],
+  perc: 0.6,
+});
