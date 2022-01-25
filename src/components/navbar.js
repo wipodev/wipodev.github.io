@@ -4,6 +4,7 @@ import { d, $, $$ } from "../utils/dom.js";
 let navbar = $(".nav-bar");
 let navbarStyle = window.getComputedStyle(navbar).getPropertyValue("position");
 let positionItems = [];
+let moveItem = undefined;
 
 export const iconLoad = () => {
   let svgNS = "http://www.w3.org/2000/svg";
@@ -36,6 +37,7 @@ export const iconLoad = () => {
     if (btn.matches(".nav-item") || btn.matches(`.nav-item *`)) {
       for (const b of e.path) {
         if (b.matches(".nav-item")) {
+          moveItem = b.getAttribute("href");
           if (navbarStyle === "fixed") {
             navMove(b, false);
             break;
@@ -117,12 +119,14 @@ function observer({ el, perc, toggleClass = false }) {
       if (toggleClass) {
         el[1].classList.toggle(toggleClass, e.intersectionRatio < perc);
       } else {
-        if (e.intersectionRatio > perc) {
+        if (e.intersectionRatio > perc && moveItem === undefined) {
           if (navbarStyle === "fixed") {
             navMove(el[1], false);
           } else {
             navMove(el[1], true);
           }
+        } else if (moveItem === "#" + el[0].id) {
+          moveItem = undefined;
         }
       }
     },
