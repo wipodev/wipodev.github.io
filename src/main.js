@@ -1,3 +1,6 @@
-import { iconLoad } from "./components/navbar.js";
+import AJWipo from "./lib/AJWipo.js";
+import "./app.js";
 
-iconLoad();
+const AJwipo = () => new AJWipo(".container").render("aj-wipo");
+
+document.addEventListener("DOMContentLoaded", AJwipo);
