@@ -134,6 +134,26 @@ AJWipo.component("aj-nav", {
           }
         }
       };
+      this.observer = function ({ el, perc, toggleClass = false }) {
+        new IntersectionObserver(
+          ([e]) => {
+            if (toggleClass) {
+              el[1].classList.toggle(toggleClass, e.intersectionRatio < perc);
+            } else {
+              if (e.intersectionRatio > perc && this.moveItem === undefined) {
+                if (this.navbarStyle === "fixed") {
+                  this.navMove(el[1], false);
+                } else {
+                  this.navMove(el[1], true);
+                }
+              } else if (this.moveItem === "#" + el[0].id) {
+                this.moveItem = undefined;
+              }
+            }
+          },
+          { threshold: [perc] }
+        ).observe(el[0]);
+      };
     },
     created() {
       this.iconLoad();
@@ -144,6 +164,47 @@ AJWipo.component("aj-nav", {
         } else {
           this.resizeNav(true);
         }
+      });
+      this.observer({
+        el: [AJWipo.getElement("#inicio"), AJWipo.getElement(".header")],
+        perc: 0.8,
+        toggleClass: "is-fixed",
+      });
+      this.observer({
+        el: [
+          AJWipo.getElement("#inicio"),
+          AJWipo.getElement("#home").parentNode,
+        ],
+        perc: 0.6,
+      });
+
+      this.observer({
+        el: [
+          AJWipo.getElement("#habilidades"),
+          AJWipo.getElement("#hability").parentNode,
+        ],
+        perc: 0.6,
+      });
+      this.observer({
+        el: [
+          AJWipo.getElement("#servicios"),
+          AJWipo.getElement("#service").parentNode,
+        ],
+        perc: 0.6,
+      });
+      this.observer({
+        el: [
+          AJWipo.getElement("#proyectos"),
+          AJWipo.getElement("#project").parentNode,
+        ],
+        perc: 0.6,
+      });
+      this.observer({
+        el: [
+          AJWipo.getElement("#contactar"),
+          AJWipo.getElement("#contact").parentNode,
+        ],
+        perc: 0.6,
       });
     },
   },

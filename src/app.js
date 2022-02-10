@@ -33,7 +33,7 @@ AJWipo.component("aj-wipo", {
   --header-height: 4rem;
 }
 
-.container {
+aj-wipo {
   display: flex;
 }
 

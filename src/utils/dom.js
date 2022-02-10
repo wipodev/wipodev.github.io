@@ -1,9 +1,3 @@
-export const d = document;
-
-export const $ = (selector, context = d) => context.querySelector(selector);
-
-export const $$ = (selector, context = d) => context.querySelectorAll(selector);
-
 export function observer({ el, perc, toggleClass = false }) {
   new IntersectionObserver(
     ([e]) => {
@@ -20,6 +14,15 @@ export function observer({ el, perc, toggleClass = false }) {
           moveItem = undefined;
         }
       }
+    },
+    { threshold: [perc] }
+  ).observe(el[0]);
+}
+
+function observerHeader({ el, perc, toggleClass }) {
+  new IntersectionObserver(
+    ([e]) => {
+      el[1].classList.toggle(toggleClass, e.intersectionRatio < perc);
     },
     { threshold: [perc] }
   ).observe(el[0]);
