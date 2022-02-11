@@ -48,6 +48,24 @@ export default class AJWipo {
         class extends HTMLElement {
           constructor() {
             super();
+            this.slots = {};
+          }
+
+          static get observedAttributes() {
+            if (script !== undefined) {
+              if (script.props !== undefined) return script.props;
+            }
+          }
+
+          attributeChangedCallback(name, oldValue, newValue) {
+            this.slots[name] = newValue;
+          }
+
+          isObjEmpty(obj) {
+            for (var prop in obj) {
+              if (obj.hasOwnProperty(prop)) return false;
+            }
+            return true;
           }
 
           connectedCallback() {
@@ -55,7 +73,19 @@ export default class AJWipo {
               if (style !== undefined) {
                 this.innerHTML = `<style>${style}</style>`;
               }
-              this.innerHTML += template;
+              if (!this.isObjEmpty(this.slots)) {
+                let tmp = template;
+                for (const slot in this.slots) {
+                  let regexp = new RegExp(
+                    `<slot name="${slot}">([A-Z0-9 \-_\.,])+<\/slot>`,
+                    "i"
+                  );
+                  tmp = tmp.replace(regexp, this.slots[slot]);
+                }
+                this.innerHTML += tmp;
+              } else {
+                this.innerHTML += template;
+              }
               if (script !== undefined) {
                 if (script.data !== undefined) script.data();
                 if (script.methods !== undefined) script.methods();

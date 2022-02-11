@@ -2,6 +2,7 @@ import "./components/NavBar.js";
 import "./components/Header.js";
 import "./views/home.js";
 import "./views/hability.js";
+import "./views/project.js";
 
 AJWipo.component("aj-wipo", {
   template:
@@ -13,7 +14,7 @@ AJWipo.component("aj-wipo", {
       <aj-home id="inicio" class="home"></aj-home>
       <aj-hability id="habilidades" class="resto"></aj-hability>
       <aj-hability id="servicios" class="resto"></aj-hability>
-      <aj-hability id="proyectos" class="resto"></aj-hability>
+      <aj-project id="proyectos" class="resto"></aj-project>
       <aj-hability id="contactar" class="resto"></aj-hability>
     </main>
     `,
@@ -28,6 +29,7 @@ AJWipo.component("aj-wipo", {
   --second-alpha-color: rgba(0, 42, 141, 0.75);
   --third-color: #501464;
   --third-alpha-color: rgba(80, 20, 100, 0.75);
+  --bg-color: #00000010;
   --font: "Raleway", sans-serif;
   --max-width: 1200px;
   --header-height: 4rem;
