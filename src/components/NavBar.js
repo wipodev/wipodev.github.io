@@ -1,38 +1,36 @@
 import Icons from "/assets/iconpack.js";
+import "./BtnMenu.js";
 
 AJWipo.component("aj-nav", {
   template:
     /*html*/
     `
-    <div class="nav-btn">
-                <div id="menu" class="nav-icon"></div>
-                <span class="nav-title">
-                </span>
-            </div>
-            <a data-order=1 href="#inicio" class="nav-item is-active">
-                <div id="home" class="nav-icon"></div>
-                <span class="nav-title">Inicio</span>
-            </a>
-            <a data-order=2 href="#habilidades" class="nav-item">
-                <div id="hability" class="nav-icon"></div>
-                <span class="nav-title">Habilidades</span>
-            </a>
-            <a data-order=3 href="#servicios" class="nav-item">
-                <div id="service" class="nav-icon"></div>
-                <span class="nav-title">Servicios</span>
-            </a>
-            <a data-order=4 href="#proyectos" class="nav-item">
-                <div id="project" class="nav-icon"></div>
-                <span class="nav-title">Proyectos</span>
-            </a>
-            <a data-order=5 href="#contactar" class="nav-item">
-                <div id="contact" class="nav-icon"></div>
-                <span class="nav-title">Contactar</span>
-            </a>
+  <aj-menu class="btn-menu"></aj-menu>
+  <a data-order=1 href="#inicio" class="nav-item is-active">
+      <div id="home" class="nav-icon"></div>
+      <span class="nav-title">Inicio</span>
+  </a>
+  <a data-order=2 href="#habilidades" class="nav-item">
+      <div id="hability" class="nav-icon"></div>
+      <span class="nav-title">Habilidades</span>
+  </a>
+  <a data-order=3 href="#servicios" class="nav-item">
+      <div id="service" class="nav-icon"></div>
+      <span class="nav-title">Servicios</span>
+  </a>
+  <a data-order=4 href="#proyectos" class="nav-item">
+      <div id="project" class="nav-icon"></div>
+      <span class="nav-title">Proyectos</span>
+  </a>
+  <a data-order=5 href="#contactar" class="nav-item">
+      <div id="contact" class="nav-icon"></div>
+      <span class="nav-title">Contactar</span>
+  </a>
   `,
   script: {
     data() {
       this.navbar = AJWipo.getElement(".nav-bar");
+      this.menu = AJWipo.getElement(".btn-menu");
       this.navbarStyle = window
         .getComputedStyle(this.navbar)
         .getPropertyValue("position");
@@ -57,14 +55,9 @@ AJWipo.component("aj-nav", {
         document.addEventListener("click", (e) => {
           let btn = e.target;
 
-          if (btn.matches(".nav-btn") || btn.matches(`.nav-btn *`)) {
-            let navmenu = AJWipo.getElement("#nav-menu");
+          if (btn.matches(".btn-menu") || btn.matches(`.btn-menu *`)) {
             this.navbar.classList.toggle("close");
-            if (!this.navbar.matches(".close")) {
-              navmenu.setAttribute("d", Icons.close);
-            } else {
-              navmenu.setAttribute("d", Icons.menu);
-            }
+            this.menu.classList.toggle("is-active");
           }
 
           if (btn.matches(".nav-item") || btn.matches(`.nav-item *`)) {
@@ -222,10 +215,6 @@ AJWipo.component("aj-nav", {
   z-index: 999;
 }
 
-.nav-bar .nav-btn {
-  display: none;
-}
-
 .nav-bar .nav-item {
   text-decoration: none;
   padding: 0.25rem;
@@ -285,11 +274,6 @@ AJWipo.component("aj-nav", {
     left: 0px;
   }
 
-  .nav-bar .nav-btn {
-    display: block;
-    padding: 0.25rem;
-  }
-
   .nav-bar .nav-item {
     overflow: hidden;
     display: flex;
@@ -339,7 +323,7 @@ AJWipo.component("aj-nav", {
   .nav-bar.close .nav-item:hover {
     border-left: 1px solid transparent;
     border-radius: 0 10% 10% 0;
-  }
+  }  
 }
   `,
 });
