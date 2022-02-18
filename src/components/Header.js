@@ -5,7 +5,7 @@ AJWipo.component("aj-header", {
     <div class="wrapper">
                     <section class="header-title">
                         <h1>Wladimir Perez</h1>
-                        <h3>Desarrorrador Web<h3>
+                        <h3>Desarrorrador Web</h3>
                     </section>
                     <section class="header-img">
                         <img src="https://assets.codepen.io/5993985/internal/avatars/users/default.png?format=auto&version=1642194704&width=300&height=300"
