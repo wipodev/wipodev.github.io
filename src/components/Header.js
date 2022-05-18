@@ -21,8 +21,7 @@ AJWipo.component("aj-header", {
   height: 9rem;
   position: absolute;
   top: 20vh;
-  z-index: 1;
-  color: var(--first-color);
+  z-index: 1;  
   transition: height 0.5s ease;
 }
 
@@ -47,10 +46,12 @@ AJWipo.component("aj-header", {
 .header h1 {
   font-size: 8vw;
   font-weight: bold;
+  color: var(--first-color);
 }
 
 .header h3 {
   font-size: 3vw;
+  color: var(--second-color);
 }
 
 .header img {
