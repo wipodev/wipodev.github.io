@@ -61,8 +61,8 @@ AJWipo.component("aj-nav", {
           }
 
           if (btn.matches(".nav-item") || btn.matches(`.nav-item *`)) {
-            if (!Event.prototype.path) {
-              Object.defineProperty(Event.prototype, 'path', {
+            if (!e.prototype.path) {
+              Object.defineProperty(e.prototype, 'path', {
                 get() { return this.composedPath(); }
               });
             }
