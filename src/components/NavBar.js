@@ -61,12 +61,7 @@ AJWipo.component("aj-nav", {
           }
 
           if (btn.matches(".nav-item") || btn.matches(`.nav-item *`)) {
-            if (!e.prototype.path) {
-              Object.defineProperty(e.prototype, 'path', {
-                get() { return this.composedPath(); }
-              });
-            }
-            for (const b of e.path) {
+            for (const b of e.composedPath()) {
               if (b.matches(".nav-item")) {
                 this.moveItem = b.getAttribute("href");
                 if (this.navbarStyle === "fixed") {
