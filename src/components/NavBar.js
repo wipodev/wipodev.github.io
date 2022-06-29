@@ -6,23 +6,23 @@ AJWipo.component("aj-nav", {
     /*html*/
     `
   <aj-menu class="btn-menu"></aj-menu>
-  <a data-order=1 href="#inicio" class="nav-item is-active">
+  <a data-order=1 href="#inicio" class="nav-item is-active" title="inicio">
       <div id="home" class="nav-icon"></div>
       <span class="nav-title">Inicio</span>
   </a>
-  <a data-order=2 href="#habilidades" class="nav-item">
+  <a data-order=2 href="#habilidades" class="nav-item" title="Habilidades">
       <div id="hability" class="nav-icon"></div>
       <span class="nav-title">Habilidades</span>
   </a>
-  <a data-order=3 href="#servicios" class="nav-item">
+  <a data-order=3 href="#servicios" class="nav-item" title="Servicios">
       <div id="service" class="nav-icon"></div>
       <span class="nav-title">Servicios</span>
   </a>
-  <a data-order=4 href="#proyectos" class="nav-item">
+  <a data-order=4 href="#proyectos" class="nav-item" title="Proyectos">
       <div id="project" class="nav-icon"></div>
       <span class="nav-title">Proyectos</span>
   </a>
-  <a data-order=5 href="#contactar" class="nav-item">
+  <a data-order=5 href="#contactar" class="nav-item" title="Contactar">
       <div id="contact" class="nav-icon"></div>
       <span class="nav-title">Contactar</span>
   </a>
