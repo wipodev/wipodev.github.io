@@ -5,39 +5,45 @@ AJWipo.component("aj-project", {
     /*HTML*/
     `
     <aj-card 
-      title="Web el Jabillo" 
-      description="Sitio web creado para una asociacion de vecinos" 
-      btn="visitar"
+      href="https://github.com/AJ-Wi/pepe"
+      img="../../assets/img/perfil.png"
+      title="Lotería el Jabillo" 
+      description="App web creado para una Agencia de Lotería" 
     >
     </aj-card>
     <aj-card 
-      title="Loteria el Jabillo" 
-      description="App web creado para una Agencia de Loteria" 
-      btn="visitar"
+      href="https://github.com/AJ-Wi/pepe"
+      img="../../assets/img/perfil.png"
+      title="Lotería el Jabillo" 
+      description="App web creado para una Agencia de Lotería" 
     >
     </aj-card>
     <aj-card 
-      title="Recipe Medico" 
-      description="App web creado para una Clinica" 
-      btn="visitar"
+      href="https://github.com/AJ-Wi/pepe"
+      img="../../assets/img/perfil.png"
+      title="Lotería el Jabillo" 
+      description="App web creado para una Agencia de Lotería" 
     >
     </aj-card>
     <aj-card 
-      title="Tema Blog AJ-theme" 
-      description="Tema creado para Vuepress" 
-      btn="visitar"
+      href="https://github.com/AJ-Wi/pepe"
+      img="../../assets/img/perfil.png"
+      title="Lotería el Jabillo" 
+      description="App web creado para una Agencia de Lotería" 
     >
     </aj-card>
     `,
   style:
     /*CSS*/
     `
-    #proyectos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: center;
-      justify-content: center;
+    aj-project {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 6rem 40px 20px 40px;
+    min-height: 100vh;
+    width: 90%;
+    margin: auto;
     }
     `,
 });

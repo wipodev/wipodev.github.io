@@ -14,7 +14,7 @@ AJWipo.component("aj-wipo", {
       <aj-home id="inicio" class="home"></aj-home>
       <aj-hability id="habilidades" class="resto"></aj-hability>
       <aj-hability id="servicios" class="resto"></aj-hability>
-      <aj-project id="proyectos" class="resto"></aj-project>
+      <aj-project id="proyectos"></aj-project>
       <aj-hability id="contactar" class="resto"></aj-hability>
     </main>
     `,

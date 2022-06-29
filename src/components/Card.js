@@ -2,73 +2,81 @@ AJWipo.component("aj-card", {
   template:
     /*HTML*/
     `
-    <section class="card-image">
-  </section>
-  <div class="card-container">
-    <h3 class="card-title">
-      <slot name="title">Web</slot>
-    </h3>
-    <div class="card-content">
+  <section class="link-card">
+    <a href="{{href}}">
+      <img src="{{img}}" alt="{{title}}">
+      <h2>
+        {{title}}
+        <span>&rarr;</span>
+      </h2>
       <p>
-        <slot name="description">Sitio web</slot>
+       {{description}}
       </p>
-      <a href="#" class="btn btn-card">
-        <slot name="btn">view now</slot>
-      </a>
-    </div>
-  </div>
+    </a>
+  </section>
     `,
   script: {
-    props: ["title", "description", "btn"],
+    props: ["href", "img", "title", "description"],
   },
   style:
     /*CSS*/
     `
-    aj-card {
-        display: block;
-  width: 40%;
-  height: 40vh;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 2px 2px 10px 2px #00000044;
-  color: #00000070;
-}
+:root {
+   --color-border: hsl(17, 24%, 90%);
+   --link-gradient: linear-gradient(45deg, #002a8d, #ff7800 30%, var(--color-border) 60%);
+  }
 
-.card-image {
-  height: 60%;
-  border-radius: 10px 10px 0 0;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1KlKLa7hfGEgUjvAIXPiCmJcCixI9Y95-2g&usqp=CAU");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+  .link-card {
+    display: flex;
+    padding: 0.15rem;
+    background-image: var(--link-gradient);
+    background-size: 400%;
+    border-radius: 0.5rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-.card-container {
-  padding: 10px;
-  background-color: #ffffff;
-  height: 40%;
-  border-radius: 0 0 10px 10px;
-}
+  img {
+    width: 100%;
+    height: auto;
+  }
 
-.card-title {
-    font-size: 2.5vw;
-}
+  .link-card>a {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1em 1.3em;
+    border-radius: 0.35rem;
+    color: var(--text-color);
+    background-color: white;
+    opacity: 0.8;
+  }
 
-.card-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  height: 100%;
-}
+  h2 {
+    margin: 0;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-.card-content p {
-    font-size: 1.3vw;
-}
+  p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+  }
 
-.btn-card {
-  border: 2px solid #00000044;
-  font-size: 1.3vw;
-  min-width: 75px;
-}
+  h2 span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+  }
+
+  .link-card:is(:hover, :focus-within) h2 {
+    color: #4F39FA;
+  }
+
+  .link-card:is(:hover, :focus-within) h2 span {
+    transform: translateX(2px);
+  }
     `,
 });

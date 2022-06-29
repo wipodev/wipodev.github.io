@@ -77,8 +77,9 @@ export default class AJWipo {
                 let tmp = template;
                 for (const slot in this.slots) {
                   let regexp = new RegExp(
-                    `<slot name="${slot}">([A-Z0-9 \-_\.,])+<\/slot>`,
-                    "i"
+                    //`<slot name="${slot}">([A-Z0-9 \-_\.,])+<\/slot>`,
+                    `{{${slot}}}`,
+                    "gi"
                   );
                   tmp = tmp.replace(regexp, this.slots[slot]);
                 }
