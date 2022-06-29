@@ -160,7 +160,7 @@ AJWipo.component("aj-nav", {
       });
       this.observer({
         el: [AJWipo.getElement("#inicio"), AJWipo.getElement(".header")],
-        perc: 0.8,
+        perc: 0.6,
         toggleClass: "is-fixed",
       });
       this.observer({

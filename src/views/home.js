@@ -5,9 +5,6 @@ AJWipo.component("aj-home", {
     <article class="hero-image">
         <aside class="hero-image-opacity">
             <div class="hero-image-content">
-                <h2 class="hero-image-title">
-                    Bienvenid@s <br>a mi sitio
-                </h2>
             </div>
         </aside>
     </article>
@@ -37,9 +34,5 @@ AJWipo.component("aj-home", {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hero-image-title {
-  color: var(--second-color);
-  font-size: 9vw;
-}
     `,
 });

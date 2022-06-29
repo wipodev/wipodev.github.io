@@ -5,7 +5,7 @@ AJWipo.component("aj-header", {
     <div class="wrapper">
                     <section class="header-title">
                         <h1>Wladimir Perez</h1>
-                        <h3>Desarrorrador Web</h3>
+                        <h3>Desarrollador Web</h3>
                     </section>
                     <section class="header-img">
                         <img src="https://assets.codepen.io/5993985/internal/avatars/users/default.png?format=auto&version=1642194704&width=300&height=300"
@@ -20,7 +20,7 @@ AJWipo.component("aj-header", {
   width: 100%;
   height: 9rem;
   position: absolute;
-  top: 20vh;
+  top: calc(50vh - 4.5rem);
   z-index: 1;  
   transition: height 0.5s ease;
 }
@@ -28,12 +28,12 @@ AJWipo.component("aj-header", {
 .header .wrapper {
   width: 100%;
   height: 100%;
-  max-width: 1200px;
   padding: 0.3rem;
   display: flex;
   justify-content: center;
   gap: 1rem;
   transition: all 0.5s ease;
+  color: var(--text-color-w)
 }
 
 .header .header-title {
@@ -45,13 +45,11 @@ AJWipo.component("aj-header", {
 
 .header h1 {
   font-size: 8vw;
-  font-weight: bold;
-  color: var(--first-color);
+  font-weight: bold;  
 }
 
 .header h3 {
-  font-size: 3vw;
-  color: var(--second-color);
+  font-size: 3vw;  
 }
 
 .header img {
@@ -72,11 +70,13 @@ AJWipo.component("aj-header", {
 }
 
 .header.is-fixed h1 {
-  font-size: 4vw;
+  font-size: 3vw;
+  color: var(--first-color);
 }
 
 .header.is-fixed h3 {
-  font-size: 2vw;
+  font-size: 1vw;
+  color: var(--second-color);
 }
     `,
 });
