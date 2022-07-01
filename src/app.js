@@ -3,6 +3,7 @@ import "./components/Header.js";
 import "./views/home.js";
 import "./views/hability.js";
 import "./views/project.js";
+import "./views/demo.js";
 
 AJWipo.component("aj-wipo", {
   template:
@@ -12,10 +13,10 @@ AJWipo.component("aj-wipo", {
     <main>
       <aj-header class="header"></aj-header>
       <aj-home id="inicio" class="home"></aj-home>
-      <aj-hability id="habilidades" class="resto"></aj-hability>
-      <aj-hability id="servicios" class="resto"></aj-hability>
+      <aj-hability id="habilidades"></aj-hability>
+      <aj-demo id="servicios" class="resto"></aj-demo>
       <aj-project id="proyectos"></aj-project>
-      <aj-hability id="contactar" class="resto"></aj-hability>
+      <aj-demo id="contactar" class="resto"></aj-demo>
     </main>
     `,
   style:
@@ -33,6 +34,12 @@ AJWipo.component("aj-wipo", {
   --font: "Raleway", sans-serif;
   --max-width: 1200px;
   --header-height: 4rem;
+  --gemunu: 'Gemunu Libre', sans-serif;
+  --odibee: 'Odibee Sans', cursive;
+  --oxanium: 'Oxanium', cursive;
+  --rationale: 'Rationale', sans-serif;
+  --russo: 'Russo One', sans-serif;
+  --teko: 'Teko', sans-serif;
 }
 
 aj-wipo {
