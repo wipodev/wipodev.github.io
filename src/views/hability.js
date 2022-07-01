@@ -10,7 +10,7 @@ AJWipo.component("aj-hability", {
         </p>
       </div>
       <div class="graphic">
-        <img class="graphic-man" src="../assets/img/perfil.png" alt="foto de wladimir">
+        <img class="graphic-man" src="../assets/img/tech-man.png" alt="foto de wladimir">
         <div class="graphic-circles">
           <img class="graphic-energy" src="../assets/img/aro.png" alt="aro de energia">
           <img class="graphic-logo" src="../assets/img/logo.png" alt="logo">
@@ -75,7 +75,7 @@ AJWipo.component("aj-hability", {
       position: relative;
       display: grid;
       padding-top: 3rem;
-      grid-template-columns: 1fr 75%;
+      grid-template-columns: 1fr 90%;
     }
 
     .graphic-man{
