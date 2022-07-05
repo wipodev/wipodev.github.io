@@ -45,6 +45,7 @@ AJWipo.component("aj-nav", {
           let svg = document.createElementNS(svgNS, "svg");
           let path = document.createElementNS(svgNS, "path");
           svg.setAttributeNS(null, "viewBox", "0 0 48 48");
+          svg.setAttributeNS(null, "class", "aj-" + AJWipo.getToken("aj-nav"));
           path.setAttributeNS(null, "d", Icons[navIcon.id]);
           path.setAttribute("id", "nav-" + navIcon.id);
           svg.appendChild(path);
