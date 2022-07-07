@@ -1,4 +1,4 @@
-import AJWipo from "./lib/AJWipo.js";
+import AJWipo from "./lib/AJWipo.min.js";
 import "./app.js";
 //import "./store/index.js";
 
