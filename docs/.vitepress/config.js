@@ -8,10 +8,30 @@ export default {
     siteTitle: "",
     logo: "/logo-main.svg",
     socialLinks: [{ icon: "github", link: "https://github.com/wipodev" }],
-    nav: [{ text: "Home", link: "/" }],
-    footer: {
-      message: "Released under the MIT License.",
-      copyright: 'Copyright © 2023-present <a href="https://github.com/wipodev">WipoDev</a>',
+  },
+  locales: {
+    root: {
+      label: "English",
+      lan: "en",
+      themeConfig: {
+        nav: [{ text: "Home", link: "/" }],
+        footer: {
+          message: "Released under the MIT License.",
+          copyright: 'Copyright © 2023-present <a href="https://github.com/wipodev">WipoDev</a>',
+        },
+      },
+    },
+    es: {
+      label: "Spanish",
+      lan: "es",
+      link: "/es/",
+      themeConfig: {
+        nav: [{ text: "Inicio", link: "/es/" }],
+        footer: {
+          message: "Publicado bajo la licencia MIT.",
+          copyright: 'Copyright © 2023-presente <a href="https://github.com/wipodev">WipoDev</a>',
+        },
+      },
     },
   },
 };
