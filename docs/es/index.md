@@ -20,16 +20,16 @@ features:
       alt: MarkForChat
     title: Mark For Chat
     details: Descarga Mark for Chat ahora y experimenta la libertad de poder hablar con cualquier persona en WhatsApp sin necesidad de añadirlos a tu libreta de contactos.
-    link: https://www.wipodev.com/markforchat/es/
+    link: https://wipodev.com/markforchat/es/
   - icon:
       light: /logoLSG.png
       dark: /logoLSG_Dark.png
       alt: LiquidSimulator
     title: liquid simulator godot
     details: Simulador 2D de líquidos con autómata celular en Godot Engine (GDNative / C++) - NativeScript 1.1
-    link: https://www.wipodev.com/liquid-simulator-godot/es/
+    link: https://wipodev.com/liquid-simulator-godot/es/
   - icon: 📜
     title: vuepress theme ajwi
     details: Tema personalizado para obtener un blog usando VuePress.
-    link: https://www.wipodev.com/vuepress-theme-ajwi/es/
+    link: https://wipodev.com/vuepress-theme-ajwi/es/
 ---
