@@ -22,3 +22,20 @@
 .VPImage.logo {
   height: 44px;
 }
+
+.VPTeamPageTitle.title-skill {
+  color: var(--primary-color);
+  padding: 0;
+}
+
+.VPTeamPageSection.section-skill+.VPTeamPageSection.section-skill {
+  margin-top: 40px;
+}
+
+.avatar.shadow-skill {
+  box-shadow: none;
+}
+
+.avatar-img.logo-skill {
+  border-radius: 0;
+}

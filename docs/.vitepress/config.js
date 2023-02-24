@@ -3,10 +3,10 @@ export default {
   titleTemplate: "WipoDev | :title",
   description: "personal portfolio.",
   lastUpdated: true,
-  head: [["link", { rel: "icon", href: "/favicon.svg", type: "image/svg" }]],
+  head: [["link", { rel: "icon", href: "/assets/img/favicon.svg", type: "image/svg" }]],
   themeConfig: {
     siteTitle: "",
-    logo: "/logo-main.svg",
+    logo: "/assets/img/logo-main.svg",
     socialLinks: [{ icon: "github", link: "https://github.com/wipodev" }],
   },
   locales: {
@@ -24,6 +24,7 @@ export default {
               { text: "VuePress Theme", link: "https://www.wipodev.com/vuepress-theme-ajwi/" },
             ],
           },
+          { text: "Skills", link: "/skills/" },
         ],
         footer: {
           message: "Released under the MIT License.",
@@ -46,6 +47,7 @@ export default {
               { text: "Tema VuePress", link: "https://www.wipodev.com/vuepress-theme-ajwi/es/" },
             ],
           },
+          { text: "Habilidades", link: "/es/skills/" },
         ],
         footer: {
           message: "Publicado bajo la licencia MIT.",
