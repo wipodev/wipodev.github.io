@@ -1,0 +1,22 @@
+{
+  "name": "personalporfolio",
+  "version": "1.0.0",
+  "description": "personal portfolio",
+  "authors": {
+    "name": "wipodev",
+    "email": "ajwipo@gmail.com"
+  },
+  "repository": "/",
+  "scripts": {
+    "dev": "vitepress dev docs --host",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "deploy": "gh-pages -d docs/.vitepress/dist"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "vitepress": "^1.0.0-alpha.45",
+    "vue": "^3.2.47"
+  }
+}
