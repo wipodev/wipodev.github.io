@@ -12,6 +12,7 @@
   --vp-button-brand-hover-border: var(--primary-color);
   --vp-button-brand-hover-text: var(--primary-color);
   --vp-button-brand-hover-bg: var(--second-color);
+  --vp-c-sponsor: var(--primary-color);
 }
 
 .dark {

@@ -11,6 +11,16 @@ const NavLinkPatch = (): Plugin => ({
   },
 });
 
+const LinkSponsor = (): Plugin => ({
+  name: "change-sponsor-functionality",
+  enforce: "pre",
+  transform: (code, id) => {
+    if (id.endsWith("VPTeamMembersItem.vue")) {
+      return code.replace('<VPIconHeart class="sp-icon" /> Sponsor', "View");
+    }
+  },
+});
+
 export default defineConfig({
-  plugins: [NavLinkPatch()],
+  plugins: [NavLinkPatch(), LinkSponsor()],
 });

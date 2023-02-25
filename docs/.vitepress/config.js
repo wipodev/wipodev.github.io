@@ -16,14 +16,7 @@ export default {
       themeConfig: {
         nav: [
           { text: "Home", link: "/" },
-          {
-            text: "Projects",
-            items: [
-              { text: "Mark for Chat", link: "https://wipodev.com/markforchat/" },
-              { text: "Liquid Simulator", link: "https://www.wipodev.com/liquid-simulator-godot/" },
-              { text: "VuePress Theme", link: "https://www.wipodev.com/vuepress-theme-ajwi/" },
-            ],
-          },
+          { text: "Projects", link: "/projects/" },
           { text: "Skills", link: "/skills/" },
         ],
         footer: {
@@ -39,14 +32,7 @@ export default {
       themeConfig: {
         nav: [
           { text: "Inicio", link: "/es/" },
-          {
-            text: "Proyectos",
-            items: [
-              { text: "Marcar para chatear", link: "https://wipodev.com/markforchat/es/" },
-              { text: "Simulador de Líquidos", link: "https://www.wipodev.com/liquid-simulator-godot/es/" },
-              { text: "Tema VuePress", link: "https://www.wipodev.com/vuepress-theme-ajwi/es/" },
-            ],
-          },
+          { text: "Proyectos", link: "/es/projects/" },
           { text: "Habilidades", link: "/es/skills/" },
         ],
         footer: {
