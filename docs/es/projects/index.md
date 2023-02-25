@@ -27,13 +27,13 @@ const featured = [
     avatar: '/assets/img/icons-projects/markforchat.svg',
     name: 'Mark For Chat',
     title: 'Chatea con cualquier persona en WhatsApp sin tener que agregarlos a tu libreta de contactos.',
-    sponsor: 'https://wipodev.com/markforchat/'
+    sponsor: 'https://wipodev.com/markforchat/es/'
   },
   {
     avatar: '/assets/img/icons-projects/liquidsimulator.svg',
     name: 'Liquid Simulator Godot',
     title: 'Simulador de Líquidos 2D con autómata celular en Godot Engine (GDNative / C++) - NativeScript 1.1',
-    sponsor: 'https://wipodev.com/liquid-simulator-godot/'
+    sponsor: 'https://wipodev.com/liquid-simulator-godot/es/'
   },
   {
     avatar: '/assets/img/icons-projects/themevuepress.svg',
