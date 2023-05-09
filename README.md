@@ -6,7 +6,7 @@
 
 </div>
 
-<img width="400" height="auto" align="right" src="docs\public\logo-main.svg">
+<img width="400" height="auto" align="right" src="docs/public/assets/img/logo-main.svg">
 
 Portafolio personal, desarrollado con con [VitePress](https://vitepress.vuejs.org/)
 

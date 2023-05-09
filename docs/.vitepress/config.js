@@ -3,7 +3,17 @@ export default {
   titleTemplate: "WipoDev | :title",
   description: "personal portfolio.",
   lastUpdated: true,
-  head: [["link", { rel: "icon", href: "/assets/img/favicon.svg", type: "image/svg" }]],
+  head: [
+    ["link", { rel: "icon", href: "/assets/img/favicon.svg", type: "image/svg" }],
+    [
+      "script",
+      {
+        async: true,
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2601722038512524",
+        crossorigin: "anonymous",
+      },
+    ],
+  ],
   themeConfig: {
     siteTitle: "",
     logo: "/assets/img/logo-main.svg",
