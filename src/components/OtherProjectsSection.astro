@@ -1,5 +1,6 @@
 ---
 import ModCard from './ModCard.astro';
+import NextSectionButton from './NextSectionButton.astro';
 ---
 <section id="otros-proyectos" class="other-projects">
   <h2>Otros Trabajos de Programación</h2>
@@ -8,9 +9,7 @@ import ModCard from './ModCard.astro';
     <ModCard title="Panel de Control Web" img="https://placehold.co/400x400/000000/00ffcc?text=Panel+de+Control" alt="Panel de Control Web" description="Interfaz administrativa desarrollada en PHP y JavaScript con autenticación, control de usuarios y estadísticas dinámicas." href="#" />
     <ModCard title="Gestor de Deudas" img="https://placehold.co/400x400/000000/00ffcc?text=Gestor+Deudas" alt="Gestor de Deudas" description="Aplicación en Python para organizar y llevar control de préstamos personales, con notificaciones y base de datos local." href="#" />
   </div>
-  <div class="next-section">
-    <button class="scroll-button section-button" onclick="document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });">↓ Ver más</button>
-  </div>
+  <NextSectionButton target="#contacto" />
 </section>
 <style>
 .other-projects {
@@ -28,37 +27,5 @@ import ModCard from './ModCard.astro';
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 3rem;
   align-items: start;
-}
-.next-section {
-  text-align: center;
-  margin-top: 3rem;
-}
-.scroll-button {
-  position: absolute;
-  bottom: 2rem;
-  background: none;
-  border: 2px solid #00ffcc;
-  color: #00ffcc;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  font-family: 'Orbitron', sans-serif;
-  cursor: pointer;
-  z-index: 3;
-  border-radius: 0.5rem;
-  animation: bounce-arrow 1.5s infinite;
-  transition: background-color 0.3s ease, color 0.3s ease, animation-play-state 0.3s ease;
-}
-.scroll-button:hover {
-  background-color: #00ffcc;
-  color: black;
-  animation-play-state: paused;
-}
-.section-button {
-  position: relative;
-  margin-top: 2rem;
-}
-@keyframes bounce-arrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 </style>
