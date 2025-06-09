@@ -1,0 +1,35 @@
+---
+import ProjectsListSection from './ProjectsListSection.astro';
+
+const appCards = [
+{
+    title: "Asistente de Voz",
+    img: "https://placehold.co/400x400/000000/00ffcc?text=Asistente+de+Voz",
+    alt: "Asistente de Voz",
+    description: "Desarrollo de un asistente de escritorio en Python con reconocimiento de voz, comandos personalizados y respuestas habladas.",
+    href: "#",
+  },
+  {
+    title: "Panel de Control Web",
+    img: "https://placehold.co/400x400/000000/00ffcc?text=Panel+de+Control",
+    alt: "Panel de Control Web",
+    description: "Interfaz administrativa desarrollada en PHP y JavaScript con autenticación, control de usuarios y estadísticas dinámicas.",
+    href: "#",
+  },
+  {
+    title: "Gestor de Deudas",
+    img: "https://placehold.co/400x400/000000/00ffcc?text=Gestor+Deudas",
+    alt: "Gestor de Deudas",
+    description: "Aplicación en Python para organizar y llevar control de préstamos personales, con notificaciones y base de datos local.",
+    href: "#",
+  },
+];
+---
+<ProjectsListSection
+  id="apps-cards"
+  title="Otros Trabajos de Programación"
+  backgroundColor="#111111"
+  padding="4rem 2rem"
+  cards={appCards}
+  nextTarget="#contact"
+/>
