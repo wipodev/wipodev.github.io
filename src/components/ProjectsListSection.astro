@@ -1,0 +1,51 @@
+---
+import ModCard from './ModCard.astro';
+import NextSectionButton from './NextSectionButton.astro';
+
+export interface Card {
+  title: string;
+  img: string;
+  alt: string;
+  description: string;
+  href: string;
+}
+export interface Props {
+  id?: string;
+  sectionClass?: string;
+  title: string;
+  backgroundColor?: string;
+  padding?: string;
+  cards: Card[];
+  nextTarget: string;
+}
+
+const {
+  id,
+  sectionClass,
+  title,
+  backgroundColor = '#0a0a0a',
+  padding = '2rem',
+  cards,
+  nextTarget,
+} = Astro.props as Props;
+---
+<section id={id} class={sectionClass} style={`background-color:${backgroundColor};padding:${padding};height:100vh;`}>
+  <h2>{title}</h2>
+  <div class="mod-grid">
+    {cards.map(card => <ModCard {...card} />)}
+  </div>
+  <NextSectionButton target={nextTarget} />
+</section>
+<style>
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .mod-grid {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    align-items: start;
+  }
+</style>
