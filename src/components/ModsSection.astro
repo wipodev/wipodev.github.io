@@ -1,33 +1,36 @@
 ---
 import ProjectsListSection from './ProjectsListSection.astro';
+import { useTranslation } from 'astro-i18next';
+
+const { t } = useTranslation();
 
 const modsCards = [
   {
     title: "Omedweller",
     img: "https://media.forgecdn.net/attachments/1148/570/logo-jpeg.jpeg",
     alt: "Mod Omedweller",
-    description: "Una criatura leal que evoluciona, se vincula contigo y reacciona dinámicamente al mundo. Perfecto para aventuras con alma.",
+    description: t('modsSection.omedwellerDesc'),
     href: "https://www.curseforge.com/minecraft/mc-mods/omedweller",
   },
   {
     title: "Player Clone",
     img: "https://media.forgecdn.net/attachments/1186/622/logo-png.png",
     alt: "Mod Player Clone",
-    description: "Crea clones de jugadores reales para simular combates épicos. Modo todos contra todos, por equipos o pruebas personalizadas.",
+    description: t('modsSection.playerCloneDesc'),
     href: "https://www.curseforge.com/minecraft/mc-mods/player-clone",
   },
   {
     title: "Silent Mask",
     img: "https://media.forgecdn.net/attachments/1204/80/logo-png.png",
     alt: "Mod Silent Mask",
-    description: "Ocúltate a plena vista. Esta máscara convierte al jugador en un ente ignorado por mobs hostiles. Estética glitch y sigilo puro.",
+    description: t('modsSection.silentMaskDesc'),
     href: "https://www.curseforge.com/minecraft/mc-mods/silent-mask",
   },
 ];
 ---
 <ProjectsListSection
   id="mods-cards"
-  title="Proyectos Destacados"
+  title={t('modsSection.title')}
   backgroundColor="#0a0a0a"
   padding="2rem"
   cards={modsCards}

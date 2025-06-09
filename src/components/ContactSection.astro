@@ -1,14 +1,17 @@
 ---
 ---
+import { useTranslation } from "astro-i18next";
+
+const { t } = useTranslation();
 <section id="contact" class="contact">
-  <h2>Contáctame</h2>
+  <h2>{t("contact.title")}</h2>
   <div class="contact-wrapper">
-    <p>¿Tienes una idea para un mod o necesitas ayuda con programación personalizada? Escríbeme y trabajemos juntos.</p>
+    <p>{t("contact.prompt")}</p>
     <form class="contact-form">
-      <input type="text" placeholder="Nombre" />
-      <input type="email" placeholder="Correo electrónico" />
-      <textarea rows="4" placeholder="Mensaje"></textarea>
-      <button type="submit" class="scroll-button section-button">Enviar</button>
+      <input type="text" placeholder={t("contact.name")} />
+      <input type="email" placeholder={t("contact.email")} />
+      <textarea rows="4" placeholder={t("contact.message")}></textarea>
+      <button type="submit" class="scroll-button section-button">{t("contact.send")}</button>
     </form>
     <div class="social-links">
       <a href="https://github.com/wipodev" target="_blank" title="GitHub">
