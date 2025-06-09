@@ -1,0 +1,172 @@
+---
+import "../styles/global.css";
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wipodev - Portafolio de Mods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <div class="header-bg"></div>
+    <div style="position: absolute; top: 1rem; left: 1rem; z-index: 3;">
+      <img src="https://avatars.githubusercontent.com/u/32320534" alt="Avatar Wipodev" style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid #00ffcc; cursor: pointer;">
+      <div style="
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: rgba(0, 0, 0, 0.85);
+        padding: 1rem;
+        border: 1px solid #00ffcc;
+        border-radius: 0.5rem;
+        color: #cafff5;
+        font-size: 0.9rem;
+        font-family: 'Orbitron', sans-serif;
+        white-space: normal;
+        word-break: break-word;
+        opacity: 0;
+        display: none;
+        pointer-events: auto;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: scale(0.95);
+        width: 220px;
+      " class="avatar-tooltip">
+        ¿Interesado en un mod personalizado?<br>
+        <a href="#contacto" style="color: #00ffcc; text-decoration: underline; font-weight: bold; display: inline-block; margin-top: 0.5rem;">Contáctame →</a>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const avatar = document.querySelector("header img[src*='avatars.githubusercontent']");
+        const tooltip = document.querySelector(".avatar-tooltip");
+        const wrapper = avatar.parentElement;
+
+        wrapper.addEventListener("mouseenter", () => {
+          tooltip.style.display = "block";
+          requestAnimationFrame(() => {
+            tooltip.style.opacity = 1;
+            tooltip.style.transform = "scale(1)";
+          });
+        });
+        wrapper.addEventListener("mouseleave", (e) => {
+          const related = e.relatedTarget;
+          if (!tooltip.contains(related) && related !== avatar) {
+            tooltip.style.opacity = 0;
+            tooltip.style.transform = "scale(0.95)";
+            setTimeout(() => tooltip.style.display = "none", 300);
+          }
+        });
+
+        tooltip.addEventListener("mouseleave", (e) => {
+          const related = e.relatedTarget;
+          if (!wrapper.contains(related)) {
+            tooltip.style.opacity = 0;
+            setTimeout(() => tooltip.style.display = "none", 300);
+          }
+        });
+      });
+    </script>
+    <h1>Wipodev</h1>
+    <p>Modding sin límites</p>
+      <button class="scroll-button" onclick="document.querySelector('main').scrollIntoView({ behavior: 'smooth' });">↓ Ver más</button>
+  </header>
+  <main>
+    <section style="background-color: #0a0a0a; padding: 2rem 2rem; height: 100vh;">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Proyectos Destacados</h2>
+
+      
+    <div class="mod-grid">
+      <div class="mod-card">
+        <h3>Omedweller</h3>
+        <img src="https://media.forgecdn.net/attachments/1148/570/logo-jpeg.jpeg" alt="Mod Omedweller">
+        <div class="mod-info">
+          <p>Una criatura leal que evoluciona, se vincula contigo y reacciona dinámicamente al mundo. Perfecto para aventuras con alma.</p>
+          <a href="https://www.curseforge.com/minecraft/mc-mods/omedweller" target="_blank">Ver más →</a>
+        </div>
+      </div>
+      <div class="mod-card">
+        <h3>Player Clone</h3>
+        <img src="https://media.forgecdn.net/attachments/1186/622/logo-png.png" alt="Mod Player Clone">
+        <div class="mod-info">
+          <p>Crea clones de jugadores reales para simular combates épicos. Modo todos contra todos, por equipos o pruebas personalizadas.</p>
+          <a href="https://www.curseforge.com/minecraft/mc-mods/player-clone" target="_blank">Ver más →</a>
+        </div>
+      </div>
+      <div class="mod-card">
+        <h3>Silent Mask</h3>
+        <img src="https://media.forgecdn.net/attachments/1204/80/logo-png.png" alt="Mod Silent Mask">
+        <div class="mod-info">
+          <p>Ocúltate a plena vista. Esta máscara convierte al jugador en un ente ignorado por mobs hostiles. Estética glitch y sigilo puro.</p>
+          <a href="https://www.curseforge.com/minecraft/mc-mods/silent-mask" target="_blank">Ver más →</a>
+        </div>
+      </div>
+    </div>
+      <div style="text-align: center; margin-top: 3rem;">
+    <button class="scroll-button section-button" onclick="document.querySelector('#otros-proyectos').scrollIntoView({ behavior: 'smooth' });">↓ Ver más</button>
+          
+      </div>
+    </section>
+  <section id="otros-proyectos" style="background-color: #111111; padding: 4rem 2rem; height: 100vh;">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Otros Trabajos de Programación</h2>
+      <div class="mod-grid">
+        <div class="mod-card">
+          <h3>Asistente de Voz</h3>
+          <img src="https://placehold.co/400x400/000000/00ffcc?text=Asistente+de+Voz" alt="Asistente de Voz">
+          <div class="mod-info">
+            <p>Desarrollo de un asistente de escritorio en Python con reconocimiento de voz, comandos personalizados y respuestas habladas.</p>
+            <a href="#">Ver más →</a>
+          </div>
+        </div>
+        <div class="mod-card">
+          <h3>Panel de Control Web</h3>
+          <img src="https://placehold.co/400x400/000000/00ffcc?text=Panel+de+Control" alt="Panel de Control Web">
+          <div class="mod-info">
+            <p>Interfaz administrativa desarrollada en PHP y JavaScript con autenticación, control de usuarios y estadísticas dinámicas.</p>
+            <a href="#">Ver más →</a>
+          </div>
+        </div>
+        <div class="mod-card">
+          <h3>Gestor de Deudas</h3>
+          <img src="https://placehold.co/400x400/000000/00ffcc?text=Gestor+Deudas" alt="Gestor de Deudas">
+          <div class="mod-info">
+            <p>Aplicación en Python para organizar y llevar control de préstamos personales, con notificaciones y base de datos local.</p>
+            <a href="#">Ver más →</a>
+          </div>
+        </div>
+      </div>
+  <div style="text-align: center; margin-top: 3rem;">
+    <button class="scroll-button section-button" onclick="document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });">↓ Ver más</button>
+  </div>
+</section>
+<section id="contacto" style="background-color: #0a0a0a; padding: 4rem 2rem; height: 100vh;">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Contáctame</h2>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center;">
+        <p style="font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; color: #cafff5;">
+          ¿Tienes una idea para un mod o necesitas ayuda con programación personalizada? Escríbeme y trabajemos juntos.
+        </p>
+        <form style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; width: 100%;">
+          <input type="text" placeholder="Nombre" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #111; color: #00ffcc;">
+          <input type="email" placeholder="Correo electrónico" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #111; color: #00ffcc;">
+          <textarea rows="4" placeholder="Mensaje" style="padding: 0.5rem; border-radius: 0.5rem; border: none; background: #111; color: #00ffcc;"></textarea>
+          <button type="submit" class="scroll-button section-button" style="animation: none; width: fit-content; align-self: center;">Enviar</button>
+        </form>
+        <div style="margin-top: 2rem; display: flex; gap: 1.5rem;">
+          <a href="https://github.com/wipodev" target="_blank" title="GitHub">
+            <img src="https://cdn.simpleicons.org/github/00ffcc" alt="GitHub" style="width: 32px; height: 32px;">
+          </a>
+          <a href="https://discord.com/users/32320534" target="_blank" title="Discord">
+            <img src="https://cdn.simpleicons.org/discord/00ffcc" alt="Discord" style="width: 32px; height: 32px;">
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Wipodev. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
