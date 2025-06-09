@@ -1,4 +1,5 @@
 ---
+import NextSectionButton from "./NextSectionButton.astro"
 ---
 <header>
   <div class="header-bg"></div>
@@ -11,12 +12,14 @@
   </div>
   <h1>Wipodev</h1>
   <p>Modding sin límites</p>
-  <button class="scroll-button" onclick="document.querySelector('main').scrollIntoView({ behavior: 'smooth' });">↓ Ver más</button>
+  <NextSectionButton target="main" />
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const avatar = document.querySelector('header img.avatar');
       const tooltip = document.querySelector('.avatar-tooltip');
+      if (!avatar || !tooltip) {return;}
       const wrapper = avatar.parentElement;
+      if (!wrapper) {return;}
       wrapper.addEventListener('mouseenter', () => {
         tooltip.style.display = 'block';
         requestAnimationFrame(() => {
@@ -138,29 +141,5 @@ header p {
   font-weight: bold;
   display: inline-block;
   margin-top: 0.5rem;
-}
-.scroll-button {
-  position: absolute;
-  bottom: 2rem;
-  background: none;
-  border: 2px solid #00ffcc;
-  color: #00ffcc;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  font-family: 'Orbitron', sans-serif;
-  cursor: pointer;
-  z-index: 3;
-  border-radius: 0.5rem;
-  animation: bounce-arrow 1.5s infinite;
-  transition: background-color 0.3s ease, color 0.3s ease, animation-play-state 0.3s ease;
-}
-.scroll-button:hover {
-  background-color: #00ffcc;
-  color: black;
-  animation-play-state: paused;
-}
-@keyframes bounce-arrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
 }
 </style>
