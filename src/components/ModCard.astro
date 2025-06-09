@@ -1,0 +1,72 @@
+---
+export interface Props {
+  title: string;
+  img: string;
+  alt: string;
+  description: string;
+  href: string;
+}
+const { title, img, alt, description, href } = Astro.props;
+---
+<div class="mod-card">
+  <h3>{title}</h3>
+  <img src={img} alt={alt} />
+  <div class="mod-info">
+    <p>{description}</p>
+    <a href={href} target="_blank">Ver más →</a>
+  </div>
+</div>
+<style>
+.mod-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #00ffcc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: visible;
+}
+.mod-card:hover {
+  transform: scale(1.05);
+  will-change: transform;
+  box-shadow: 0 0 25px #00ffcc88;
+}
+.mod-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.mod-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.mod-info {
+  display: none;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.mod-card:hover .mod-info {
+  display: flex;
+}
+.mod-card p {
+  font-size: 0.95rem;
+  color: #cafff5;
+  margin-bottom: 1.2rem;
+}
+.mod-card a {
+  display: inline-block;
+  text-decoration: none;
+  color: #00ffcc;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+.mod-card a:hover {
+  transform: translateX(4px);
+}
+</style>

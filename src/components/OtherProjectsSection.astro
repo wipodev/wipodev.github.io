@@ -1,0 +1,31 @@
+---
+import ModCard from './ModCard.astro';
+import NextSectionButton from './NextSectionButton.astro';
+---
+<section id="otros-proyectos" class="other-projects">
+  <h2>Otros Trabajos de Programación</h2>
+  <div class="mod-grid">
+    <ModCard title="Asistente de Voz" img="https://placehold.co/400x400/000000/00ffcc?text=Asistente+de+Voz" alt="Asistente de Voz" description="Desarrollo de un asistente de escritorio en Python con reconocimiento de voz, comandos personalizados y respuestas habladas." href="#" />
+    <ModCard title="Panel de Control Web" img="https://placehold.co/400x400/000000/00ffcc?text=Panel+de+Control" alt="Panel de Control Web" description="Interfaz administrativa desarrollada en PHP y JavaScript con autenticación, control de usuarios y estadísticas dinámicas." href="#" />
+    <ModCard title="Gestor de Deudas" img="https://placehold.co/400x400/000000/00ffcc?text=Gestor+Deudas" alt="Gestor de Deudas" description="Aplicación en Python para organizar y llevar control de préstamos personales, con notificaciones y base de datos local." href="#" />
+  </div>
+  <NextSectionButton target="#contacto" />
+</section>
+<style>
+.other-projects {
+  background-color: #111111;
+  padding: 4rem 2rem;
+  height: 100vh;
+}
+.other-projects h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.mod-grid {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  align-items: start;
+}
+</style>
