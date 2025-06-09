@@ -1,0 +1,38 @@
+{
+  "title": "Wipodev - Mods Portfolio",
+  "hero": {
+    "avatarAlt": "Avatar Wipodev",
+    "tooltip": "¿Interesado en un mod personalizado?",
+    "contact": "Contáctame",
+    "subtitle": "Modding sin límites"
+  },
+  "nextSectionButton": {
+    "label": "↓ Ver más"
+  },
+  "modsSection": {
+    "title": "Proyectos Destacados",
+    "omedwellerDesc": "Una criatura leal que evoluciona, se vincula contigo y reacciona dinámicamente al mundo. Perfecto para aventuras con alma.",
+    "playerCloneDesc": "Crea clones de jugadores reales para simular combates épicos. Modo todos contra todos, por equipos o pruebas personalizadas.",
+    "silentMaskDesc": "Ocúltate a plena vista. Esta máscara convierte al jugador en un ente ignorado por mobs hostiles. Estética glitch y sigilo puro."
+  },
+  "appsSection": {
+    "title": "Otros Trabajos de Programación",
+    "voiceAssistantDesc": "Desarrollo de un asistente de escritorio en Python con reconocimiento de voz, comandos personalizados y respuestas habladas.",
+    "controlPanelDesc": "Interfaz administrativa desarrollada en PHP y JavaScript con autenticación, control de usuarios y estadísticas dinámicas.",
+    "debtManagerDesc": "Aplicación en Python para organizar y llevar control de préstamos personales, con notificaciones y base de datos local."
+  },
+  "modCard": {
+    "seeMore": "Ver más →"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "prompt": "¿Tienes una idea para un mod o necesitas ayuda con programación personalizada? Escríbeme y trabajemos juntos.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "send": "Enviar"
+  },
+  "footer": {
+    "copyright": "© 2025 Wipodev. Todos los derechos reservados."
+  }
+}

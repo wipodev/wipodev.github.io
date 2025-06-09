@@ -1,12 +1,16 @@
 ---
+import { useTranslation } from "astro-i18next";
+
 export interface Props {
   target: string;
   label?: string;
 }
-const { target, label = "\u2193 Ver m\u00E1s" } = Astro.props;
+const { target, label } = Astro.props;
+const { t } = useTranslation();
+const finalLabel = label ?? t('nextSectionButton.label');
 ---
 <div class="next-section">
-  <button class="scroll-button section-button" onclick={`document.querySelector('${target}').scrollIntoView({ behavior: 'smooth' });`}>{label}</button>
+  <button class="scroll-button section-button" onclick={`document.querySelector('${target}').scrollIntoView({ behavior: 'smooth' });`}>{finalLabel}</button>
 </div>
 <style>
 .next-section {

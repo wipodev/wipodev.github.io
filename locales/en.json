@@ -1,0 +1,38 @@
+{
+  "title": "Wipodev - Mods Portfolio",
+  "hero": {
+    "avatarAlt": "Avatar Wipodev",
+    "tooltip": "Interested in a custom mod?",
+    "contact": "Contact me",
+    "subtitle": "Modding without limits"
+  },
+  "nextSectionButton": {
+    "label": "↓ See more"
+  },
+  "modsSection": {
+    "title": "Featured Projects",
+    "omedwellerDesc": "A loyal creature that evolves, bonds with you and reacts dynamically to the world. Perfect for soulful adventures.",
+    "playerCloneDesc": "Create clones of real players to simulate epic battles. Free-for-all, team mode or custom trials.",
+    "silentMaskDesc": "Hide in plain sight. This mask turns the player into an entity ignored by hostile mobs. Glitch aesthetics and pure stealth."
+  },
+  "appsSection": {
+    "title": "Other Programming Projects",
+    "voiceAssistantDesc": "Desktop assistant built with Python featuring voice recognition, custom commands and spoken responses.",
+    "controlPanelDesc": "Administrative interface built in PHP and JavaScript with authentication, user management and dynamic statistics.",
+    "debtManagerDesc": "Python app to manage personal loans with notifications and local database."
+  },
+  "modCard": {
+    "seeMore": "See more →"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "prompt": "Have an idea for a mod or need help with custom programming? Send me a message and let's work together.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
+  },
+  "footer": {
+    "copyright": "© 2025 Wipodev. All rights reserved."
+  }
+}

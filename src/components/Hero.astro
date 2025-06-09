@@ -1,17 +1,20 @@
 ---
 import NextSectionButton from "./NextSectionButton.astro"
+import { useTranslation } from "astro-i18next"
+
+const { t } = useTranslation();
 ---
 <header>
   <div class="header-bg"></div>
   <div class="avatar-wrapper">
-    <img class="avatar" src="https://avatars.githubusercontent.com/u/32320534" alt="Avatar Wipodev" />
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/32320534" alt={t('hero.avatarAlt')} />
     <div class="avatar-tooltip">
-      ¿Interesado en un mod personalizado?<br>
-      <a href="#contacto">Contáctame →</a>
+      {t('hero.tooltip')}<br>
+      <a href="#contact">{t('hero.contact')} →</a>
     </div>
   </div>
   <h1>Wipodev</h1>
-  <p>Modding sin límites</p>
+  <p>{t('hero.subtitle')}</p>
   <NextSectionButton target="main" />
   <script>
     document.addEventListener('DOMContentLoaded', () => {

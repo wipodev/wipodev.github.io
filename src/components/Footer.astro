@@ -1,7 +1,10 @@
 ---
 ---
+import { useTranslation } from "astro-i18next";
+
+const { t } = useTranslation();
 <footer>
-  <p>© 2025 Wipodev. Todos los derechos reservados.</p>
+  <p>{t("footer.copyright")}</p>
 </footer>
 <style>
 footer {

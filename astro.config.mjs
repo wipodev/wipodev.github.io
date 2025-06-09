@@ -1,5 +1,11 @@
 import { defineConfig } from "astro/config";
+import i18next from "astro-i18next";
 
 export default defineConfig({
-  // Configuración por defecto
+  integrations: [
+    i18next({
+      defaultLocale: "es",
+      supportedLocales: ["es", "en"],
+    }),
+  ],
 });

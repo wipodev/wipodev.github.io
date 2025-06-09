@@ -7,13 +7,15 @@ export interface Props {
   href: string;
 }
 const { title, img, alt, description, href } = Astro.props;
+import { useTranslation } from 'astro-i18next';
+const { t } = useTranslation();
 ---
 <div class="mod-card">
   <h3>{title}</h3>
   <img src={img} alt={alt} />
   <div class="mod-info">
     <p>{description}</p>
-    <a href={href} target="_blank">Ver más →</a>
+    <a href={href} target="_blank">{t('modCard.seeMore')}</a>
   </div>
 </div>
 <style>
