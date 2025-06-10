@@ -33,6 +33,6 @@ Para añadir un nuevo idioma:
 Dentro de los componentes se debe importar el hook de esta manera:
 
 ```js
-import { useTranslation } from "astro-i18next";
+import useTranslation from "astro-i18next";
 ```
 
