@@ -30,9 +30,11 @@ Para añadir un nuevo idioma:
 1. Crea un archivo `locales/<codigo>.json` con las cadenas traducidas.
 2. Añade el código del idioma al arreglo `supportedLocales` en `astro.config.mjs`.
 
-Dentro de los componentes se debe importar el hook de esta manera:
+Dentro de los componentes se debe importar el hook de esta manera y llamarlo con `await` para obtener las funciones de traducción:
 
 ```js
 import useTranslation from "astro-i18next";
+
+const { t } = await useTranslation();
 ```
 

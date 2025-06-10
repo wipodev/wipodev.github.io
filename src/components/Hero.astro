@@ -2,7 +2,7 @@
 import NextSectionButton from "./NextSectionButton.astro"
 import useTranslation from "astro-i18next"
 
-const { t } = useTranslation();
+const { t } = await useTranslation();
 ---
 <header>
   <div class="header-bg"></div>
