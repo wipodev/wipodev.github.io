@@ -8,7 +8,7 @@ export interface Props {
 }
 const { title, img, alt, description, href } = Astro.props;
 import useTranslation from 'astro-i18next';
-const { t } = useTranslation();
+const { t } = await useTranslation();
 ---
 <div class="mod-card">
   <h3>{title}</h3>

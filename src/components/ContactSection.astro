@@ -1,6 +1,6 @@
 ---
 import useTranslation from "astro-i18next";
-const { t } = useTranslation();
+const { t } = await useTranslation();
 ---
 <section id="contact" class="contact">
   <h2>{t("contact.title")}</h2>

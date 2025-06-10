@@ -1,6 +1,6 @@
 ---
 import useTranslation from "astro-i18next";
-const { t } = useTranslation();
+const { t } = await useTranslation();
 ---
 <footer>
   <p>{t("footer.copyright")}</p>

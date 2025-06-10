@@ -6,7 +6,7 @@ export interface Props {
   label?: string;
 }
 const { target, label } = Astro.props;
-const { t } = useTranslation();
+const { t } = await useTranslation();
 const finalLabel = label ?? t('nextSectionButton.label');
 ---
 <div class="next-section">
