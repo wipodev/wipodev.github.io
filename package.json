@@ -7,8 +7,6 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "latest",
-    "astro-i18next": "latest",
-    "i18next": "latest"
+    "astro": "latest"
   }
 }

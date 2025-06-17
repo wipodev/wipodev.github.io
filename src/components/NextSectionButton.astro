@@ -1,13 +1,15 @@
 ---
-import useTranslation from "astro-i18next";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 export interface Props {
   target: string;
   label?: string;
 }
 const { target, label } = Astro.props;
-const { t } = await useTranslation();
-const finalLabel = label ?? t('nextSectionButton.label');
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const finalLabel = label ?? t('nextSectionButton');
 ---
 <div class="next-section">
   <button class="scroll-button section-button" onclick={`document.querySelector('${target}').scrollIntoView({ behavior: 'smooth' });`}>{finalLabel}</button>

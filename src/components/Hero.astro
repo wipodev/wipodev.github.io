@@ -1,8 +1,9 @@
 ---
 import NextSectionButton from "./NextSectionButton.astro"
-import useTranslation from "astro-i18next"
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const { t } = await useTranslation();
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <header>
   <div class="header-bg"></div>
@@ -18,30 +19,30 @@ const { t } = await useTranslation();
   <NextSectionButton target="main" />
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const avatar = document.querySelector('header img.avatar');
-      const tooltip = document.querySelector('.avatar-tooltip');
+      const avatar = document.querySelector('header img.avatar') as HTMLElement;
+      const tooltip = document.querySelector('.avatar-tooltip') as HTMLElement;
       if (!avatar || !tooltip) {return;}
       const wrapper = avatar.parentElement;
       if (!wrapper) {return;}
       wrapper.addEventListener('mouseenter', () => {
         tooltip.style.display = 'block';
         requestAnimationFrame(() => {
-          tooltip.style.opacity = 1;
+          tooltip.style.opacity = "1";
           tooltip.style.transform = 'scale(1)';
         });
       });
       wrapper.addEventListener('mouseleave', (e) => {
-        const related = e.relatedTarget;
+        const related = e.relatedTarget as Node | null;
         if (!tooltip.contains(related) && related !== avatar) {
-          tooltip.style.opacity = 0;
+          tooltip.style.opacity = "0";
           tooltip.style.transform = 'scale(0.95)';
           setTimeout(() => tooltip.style.display = 'none', 300);
         }
       });
       tooltip.addEventListener('mouseleave', (e) => {
-        const related = e.relatedTarget;
+        const related = e.relatedTarget as Node | null;
         if (!wrapper.contains(related)) {
-          tooltip.style.opacity = 0;
+          tooltip.style.opacity = "0";
           setTimeout(() => tooltip.style.display = 'none', 300);
         }
       });

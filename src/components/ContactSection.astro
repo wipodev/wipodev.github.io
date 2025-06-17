@@ -1,6 +1,8 @@
 ---
-import useTranslation from "astro-i18next";
-const { t } = await useTranslation();
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <section id="contact" class="contact">
   <h2>{t("contact.title")}</h2>

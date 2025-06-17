@@ -1,8 +1,11 @@
 ---
 import ProjectsListSection from './ProjectsListSection.astro';
-import useTranslation from 'astro-i18next';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n/ui';
 
-const { t } = await useTranslation();
+const lang = getLangFromUrl(Astro.url);
+const lang2 = Astro.currentLocale || 'es';
+const t = useTranslations(lang2 as keyof typeof languages);
 
 const appCards = [
 {

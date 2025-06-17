@@ -5,19 +5,21 @@ import ModsSection from "../components/ModsSection.astro";
 import AppsSection from "../components/AppsSection.astro";
 import ContactSection from "../components/ContactSection.astro";
 import Footer from "../components/Footer.astro";
-import useTranslation from "astro-i18next";
+import { getLangFromUrl } from '../i18n/utils';
+import LanguagePicker from "../components/LanguagePicker.astro";
 
-const { t, locale } = await useTranslation();
+const lang = getLangFromUrl(Astro.url);
 ---
 <!DOCTYPE html>
-<html lang="{locale}">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{t("title")}</title>
+  <title>Wipodev - Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <LanguagePicker />
   <Hero />
   <main>
     <ModsSection />
