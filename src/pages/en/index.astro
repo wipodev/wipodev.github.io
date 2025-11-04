@@ -9,7 +9,6 @@ import { getLangFromUrl } from '../../i18n/utils';
 import LanguagePicker from "../../components/LanguagePicker.astro";
 
 const lang = getLangFromUrl(Astro.url);
-const lang2 = Astro.currentLocale;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -17,6 +16,7 @@ const lang2 = Astro.currentLocale;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wipodev - Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
