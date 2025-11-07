@@ -1,0 +1,70 @@
+.markdown-content h2 {
+  margin-block: 1rem;
+}
+
+.markdown-content h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content hr {
+  margin-top: 0.5rem;
+}
+
+.markdown-content p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-left: 1rem;
+}
+
+.markdown-content img {
+  width: 100%;
+  height: auto;
+}
+
+.note {
+  border-left: 4px solid;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: #111;
+  color: #eee;
+}
+
+.note.info {
+  border-color: #00bfff;
+  background-color: #001a33;
+}
+
+.note.warning {
+  border-color: #ffcc00;
+  background-color: #332b00;
+}
+
+.note.error {
+  border-color: #ff4444;
+  background-color: #330000;
+}
+
+.note strong {
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 0.4rem;
+  color: inherit;
+  text-shadow: 0 0 6px currentColor;
+}
+
+.note.info strong {
+  color: #00bfff;
+}
+
+.note.warning strong {
+  color: #ffcc00;
+}
+
+.note.error strong {
+  color: #ff4444;
+}

@@ -1,32 +1,30 @@
 ---
-import "../styles/global.css";
-import Hero from "../components/Hero.astro";
-import ModsSection from "../components/ModsSection.astro";
-import AppsSection from "../components/AppsSection.astro";
-import ContactSection from "../components/ContactSection.astro";
-import Footer from "../components/Footer.astro";
-import { getLangFromUrl } from '../i18n/utils';
-import LanguagePicker from "../components/LanguagePicker.astro";
+import Layout from '../layouts/Layout.astro';
+import ModsSection from "../components/FeaturedModsSection.astro";
+import { useTranslations } from '../i18n/utils';
+import { defaultLang } from "../i18n/ui";
 
-const lang = getLangFromUrl(Astro.url);
+const locale = Astro.currentLocale || defaultLang;
+const t = useTranslations(locale);
 ---
-<!DOCTYPE html>
-<html lang={lang}>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wipodev - Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <LanguagePicker />
-  <Hero />
-  <main>
-    <ModsSection />
-    <AppsSection />
-    <ContactSection />
-  </main>
-  <Footer />
-</body>
-</html>
+
+<Layout title={t('title')} navbarVariant="home">
+  <ModsSection title={t('modsSection.title')} />
+</Layout>
+
+<script is:inline>
+  const navbar = document.querySelector('.navbar');
+  const modsSection = document.querySelector('#mods-cards');
+  function handleScroll() {
+    if (!navbar || !modsSection) return;
+
+    const trigger = modsSection.offsetTop - 68;
+    if (window.scrollY >= trigger) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+</script>

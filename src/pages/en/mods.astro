@@ -8,6 +8,6 @@ const locale = Astro.currentLocale || defaultLang;
 const t = useTranslations(locale);
 ---
 
-<Layout title={t('title')} navbarVariant="home">
-  <ModsSection title={t('modsSection.title')} />
+<Layout title={t('modsPage.title')} navbarVariant="main">
+  <ModsSection title={t('modsPage.title')} subtitle={t('modsPage.subtitle')} />
 </Layout>

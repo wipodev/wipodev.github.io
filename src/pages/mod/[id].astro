@@ -1,0 +1,99 @@
+---
+import CustomButton from '../../components/CustomButton.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const lang = "es";
+  const mods = await getCollection("mods", ({ data }) => data.lang === lang);
+  const langRegex = new RegExp(`_(${lang})$`, "i");
+  return mods.map(mod => ({
+    params: { id: mod.slug.replace(langRegex, "") },
+    props: { mod }
+  }));
+}
+
+const { mod } = Astro.props;
+const { title, image, description, model, link } = mod.data;
+const { Content } = await render(mod);
+---
+
+<Layout title={title} navbarVariant="main">
+  <div class="container">
+    <aside>
+    </aside>
+    <main class="mod-page">
+      <section class="mod-aside">
+        <img transition:name={`img-${mod.slug}`} src={image} alt={title} class="mod-image" />
+      </section>
+      <section class="mod-main">
+        <h1 class="mod-title">{title}</h1>
+        <p class="short">{description}</p>
+        <div class="markdown-content">
+          <Content />
+        </div>
+        <a href={link} target="_blank" class="btn-curseforge">
+          <CustomButton label='Ver en CurseForge' />
+        </a>
+      </section>
+    </main>
+  </div>
+</Layout>
+
+<style>
+.container {
+  margin-top: 4.31rem;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 2rem;
+  background-color: #1e1e20;
+}
+
+.mod-page {
+  color: #cafff5;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px #00ffc644;
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  gap: 2rem;
+  border-radius: 4px 4px 0 0;
+}
+
+.mod-aside {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mod-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+}
+
+.mod-title {
+  color: #00ffc6;
+  margin-bottom: 1rem;
+}
+
+.mod-image {
+  position: sticky;
+  top: 6.31rem;
+  border-radius: 0.75rem;
+  border: 1px solid #00ffc6;
+  width: 100%;
+}
+
+.btn-curseforge {
+  display: inline-block;
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+</style>

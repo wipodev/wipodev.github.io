@@ -1,54 +1,20 @@
 ---
-import NextSectionButton from "./NextSectionButton.astro"
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import CustomButton from "./CustomButton.astro";
+import { useTranslations } from '../i18n/utils';
+import { defaultLang } from "../i18n/ui";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const locale = Astro.currentLocale || defaultLang;
+const t = useTranslations(locale);
 ---
 <header>
   <div class="header-bg"></div>
-  <div class="avatar-wrapper">
-    <img class="avatar" src="https://avatars.githubusercontent.com/u/32320534" alt={t('hero.avatarAlt')} />
-    <div class="avatar-tooltip">
-      {t('hero.tooltip')}<br>
-      <a href="#contact">{t('hero.contact')} →</a>
-    </div>
-  </div>
   <h1>Wipodev</h1>
   <p>{t('hero.subtitle')}</p>
-  <NextSectionButton target="main" />
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const avatar = document.querySelector('header img.avatar') as HTMLElement;
-      const tooltip = document.querySelector('.avatar-tooltip') as HTMLElement;
-      if (!avatar || !tooltip) {return;}
-      const wrapper = avatar.parentElement;
-      if (!wrapper) {return;}
-      wrapper.addEventListener('mouseenter', () => {
-        tooltip.style.display = 'block';
-        requestAnimationFrame(() => {
-          tooltip.style.opacity = "1";
-          tooltip.style.transform = 'scale(1)';
-        });
-      });
-      wrapper.addEventListener('mouseleave', (e) => {
-        const related = e.relatedTarget as Node | null;
-        if (!tooltip.contains(related) && related !== avatar) {
-          tooltip.style.opacity = "0";
-          tooltip.style.transform = 'scale(0.95)';
-          setTimeout(() => tooltip.style.display = 'none', 300);
-        }
-      });
-      tooltip.addEventListener('mouseleave', (e) => {
-        const related = e.relatedTarget as Node | null;
-        if (!wrapper.contains(related)) {
-          tooltip.style.opacity = "0";
-          setTimeout(() => tooltip.style.display = 'none', 300);
-        }
-      });
-    });
-  </script>
+  <div class="next-section">
+    <CustomButton target="main" animation />
+  </div>
 </header>
+
 <style>
 header {
   position: relative;
@@ -68,6 +34,9 @@ header h1 {
 header p {
   font-size: 1.5rem;
   opacity: 0.8;
+}
+header .next-section {
+  margin-top: 3rem;
 }
 @keyframes flicker {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
@@ -105,45 +74,5 @@ header p {
   animation: glitch-background 5s infinite;
   z-index: 1;
   pointer-events: none;
-}
-.avatar-wrapper {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 3;
-}
-.avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 2px solid #00ffcc;
-  cursor: pointer;
-}
-.avatar-tooltip {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  background: rgba(0, 0, 0, 0.85);
-  padding: 1rem;
-  border: 1px solid #00ffcc;
-  border-radius: 0.5rem;
-  color: #cafff5;
-  font-size: 0.9rem;
-  font-family: 'Orbitron', sans-serif;
-  white-space: normal;
-  word-break: break-word;
-  opacity: 0;
-  display: none;
-  pointer-events: auto;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: scale(0.95);
-  width: 220px;
-}
-.avatar-tooltip a {
-  color: #00ffcc;
-  text-decoration: underline;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 0.5rem;
 }
 </style>

@@ -1,0 +1,58 @@
+---
+import { useTranslations } from "../i18n/utils";
+import { defaultLang } from "../i18n/ui";
+
+export interface Props {
+  label?: string;
+  target?: string;
+  type?: "button" | "submit" | "reset";
+  animation?: boolean;
+}
+
+const { label, target, type = "button", animation = false } = Astro.props;
+
+const locale = Astro.currentLocale || defaultLang;
+const t = useTranslations(locale);
+const finalLabel = label ?? t("nextSectionButton");
+const anim = animation ? "btn-animation" : ""
+
+---
+
+<button
+  type={type}
+  class={`btn ${anim}`}
+  data-target={target}
+>
+  {finalLabel}
+</button>
+
+<style>
+.btn {
+  background: none;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  width: fit-content;
+  z-index: 3;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease, animation-play-state 0.3s ease;
+}
+
+.btn-animation {
+  animation: bounce-arrow 1.5s infinite;
+}
+
+.btn:hover {
+  background-color: #00ffcc;
+  color: black;
+  animation-play-state: paused;
+}
+
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+</style>

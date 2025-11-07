@@ -1,0 +1,61 @@
+---
+import ModCard from "../components/ModCard.astro";
+import { getCollection } from "astro:content";
+import { useTranslations, useTranslatedPath } from '../i18n/utils';
+import { defaultLang } from "../i18n/ui";
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+}
+
+const locale = Astro.currentLocale || defaultLang;
+const currentPage = Astro.url.pathname;
+const t = useTranslations(locale);
+const translatePath = useTranslatedPath(locale);
+const { title, subtitle } = Astro.props;
+const mods = (await getCollection("mods")).filter(m => m.data.lang === locale);
+const filterPage = currentPage == "/" || currentPage == "/en/";
+---
+
+<main id="mods-cards" class="mods-page">
+  <h1>{title}</h1>
+  <p class="subtitle">{subtitle}</p>
+
+  <section class="mods-grid">
+    {mods.map((mod) => {
+      if (!mod.data.featured && filterPage) return;
+      return <ModCard {...mod.data} link={translatePath(`/mod/${mod.slug.replace(/_(es|en)$/i, "")}/`, locale)} slug={mod.slug} />;
+    })}
+  </section>
+</main>
+
+<style>
+  .mods-page {
+    min-height: calc(100vh - 20px - 6rem);
+    text-align: center;
+    background-color: #0a0a0a;
+    padding: 8rem 2rem 2rem 2rem;
+  }
+
+  .mods-page h1 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2.5rem;
+    color: #00ffc6;
+    margin-bottom: 0.5rem;
+  }
+
+  .mods-page .subtitle {
+    color: #cafff5;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+  }
+
+  .mods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+</style>

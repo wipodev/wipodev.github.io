@@ -1,16 +1,24 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+import { defaultLang } from "../i18n/ui";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const locale = Astro.currentLocale || defaultLang;
+const t = useTranslations(locale);
 ---
+
 <footer>
   <p>{t("footer.copyright")}</p>
 </footer>
+
 <style>
 footer {
+  position: relative;
   text-align: center;
   padding: 3rem 1rem;
   color: #888;
+  background-color: #121318;
+}
+footer p {
+  margin: 0;
 }
 </style>

@@ -1,23 +1,62 @@
 ---
-import { languages } from '../i18n/ui';
-import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
+import { languages, defaultLang } from "../i18n/ui";
+import { useTranslatedPath } from "../i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
+const current = Astro.currentLocale || defaultLang;
+const translatePath = useTranslatedPath(current);
+let currentPath = Astro.url.pathname;
+const prefixes = Object.keys(languages).map(code => `/${code}/`);
+
+for (const prefix of prefixes) {
+  if (currentPath.startsWith(prefix)) {
+    currentPath = currentPath.slice(prefix.length - 1);
+    break;
+  }
+}
 ---
-<div>
+
+<nav class="lang-picker">
   <ul>
-    {Object.entries(languages).map(([lang, label]) => (
-      <li>
-        <a href={translatePath('/', lang)}>{label}</a>
+    {Object.entries(languages).map(([code, label]) => (
+      <li class={current === code ? "active" : ""}>
+        <a href={translatePath(currentPath, code)}>
+          {label}
+        </a>
       </li>
     ))}
   </ul>
-</div>
+</nav>
 
 <style>
-  div {
-    text-align: center;
-    background: red;
-  }
+.lang-picker {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+}
+
+.lang-picker ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.lang-picker a {
+  text-decoration: none;
+  color: #00ffcc;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+}
+
+.lang-picker li.active a {
+  text-decoration: underline;
+  color: white;
+}
+
+.lang-picker a:hover {
+  color: #ffffff;
+}
 </style>

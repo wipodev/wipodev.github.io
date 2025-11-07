@@ -1,0 +1,100 @@
+---
+import "../styles/modsPage.css"
+import Avatar from "../components/Avatar.astro";
+import LanguagePicker from "../components/LanguagePicker.astro";
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
+import { useTranslations } from '../i18n/utils';
+import { defaultLang } from "../i18n/ui";
+
+export interface Props {
+  title?: string;
+  navbarVariant?: "home" | "main";
+}
+
+const { title = "Wipodev", navbarVariant = "home" } = Astro.props;
+const locale = Astro.currentLocale || defaultLang;
+const t = useTranslations(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+    <ClientRouter />
+	</head>
+	<body>
+    <Avatar />
+    <LanguagePicker />
+    {navbarVariant === "home" && <Hero />}
+    <Navbar variant={navbarVariant} />
+		<slot />
+    <Footer />
+	</body>
+</html>
+
+<script is:inline>
+  function attachScrollButtons() {
+    document.querySelectorAll("[data-target]").forEach(btn => {
+      if (btn.dataset.scrollReady) return;
+      btn.dataset.scrollReady = "true";
+
+      btn.addEventListener("click", () => {
+        const selector = btn.dataset.target;
+        const el = document.querySelector(selector);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  }
+
+  function setupNavbarScrollEffect() {
+    const navbar = document.querySelector(".navbar");
+    const modsSection = document.querySelector("#mods-cards");
+    if (!navbar) return;
+
+    function handleScroll() {
+      if (!modsSection) return;
+      const trigger = modsSection.offsetTop - 68;
+      if (window.scrollY >= trigger) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    }
+
+    window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  }
+
+  function initGlobalScripts() {
+    attachScrollButtons();
+    setupNavbarScrollEffect();
+  }
+
+  document.addEventListener("astro:page-load", initGlobalScripts);
+  document.addEventListener("astro:after-swap", initGlobalScripts);
+  initGlobalScripts();
+</script>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+	body {
+    font-family: "Orbitron", sans-serif;
+    background: #121318;
+    color: #00ffcc;
+    overflow-x: hidden;
+	}
+</style>

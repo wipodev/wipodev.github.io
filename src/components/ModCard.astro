@@ -1,76 +1,120 @@
 ---
 export interface Props {
   title: string;
-  img: string;
-  alt: string;
+  image: string;
   description: string;
-  href: string;
+  versions: string[];
+  status: string;
+  link: string;
+  slug: string;
 }
-const { title, img, alt, description, href } = Astro.props;
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const { title, image, description, versions, status, link, slug } = Astro.props;
 ---
-<div class="mod-card">
-  <h3>{title}</h3>
-  <img src={img} alt={alt} />
-  <div class="mod-info">
-    <p>{description}</p>
-    <a href={href} target="_blank">{t('modCard.seeMore')}</a>
-  </div>
-</div>
+
+<article class="mod-card">
+  <a href={link}>
+    <img transition:name={`img-${slug}`} src={image} alt={title} class="mod-image" />
+    <div class="mod-content">
+      <h2>{title}</h2>
+      <p class="desc">{description}</p>
+
+      <div class="tags">
+        {versions.map(v => <span class="tag">{v}</span>)}
+        <span class={`tag status ${status.toLowerCase()}`}>{status}</span>
+      </div>
+
+      <span class="btn">más detalles →</span>
+    </div>
+  </a>
+</article>
+
 <style>
 .mod-card {
   background: rgba(0, 0, 0, 0.6);
-  border: 2px solid #00ffcc;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
+  border: 1px solid #00ffc6;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 480px;
+}
+
+.mod-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px #00ffc644;
+}
+
+.mod-card a {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  overflow: visible;
+  text-decoration: none;
+  height: 100%;
 }
-.mod-card:hover {
-  transform: scale(1.05);
-  will-change: transform;
-  box-shadow: 0 0 25px #00ffcc88;
+
+.mod-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #00ffc6;
 }
-.mod-card h3 {
-  font-size: 1.6rem;
+
+.mod-content {
+  padding: 1rem 1.5rem;  
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mod-content h2 {
+  color: #00ffc6;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.mod-content .desc {
+  color: #cafff5;
+  font-size: 0.95rem;
+  line-height: 1.4;
   margin-bottom: 1rem;
 }
-.mod-card img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-.mod-info {
-  display: none;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-.mod-card:hover .mod-info {
+
+.tags {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
-.mod-card p {
-  font-size: 0.95rem;
-  color: #cafff5;
-  margin-bottom: 1.2rem;
+
+.tag {
+  background: rgba(0, 255, 198, 0.15);
+  border: 1px solid #00ffc6;
+  border-radius: 0.3rem;
+  color: #00ffc6;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
 }
-.mod-card a {
+
+.status.beta {
+  border-color: #ffaa00;
+  color: #ffaa00;
+}
+.status.release {
+  border-color: #00ff7f;
+  color: #00ff7f;
+}
+.status.stable {
+  border-color: #00bfff;
+  color: #00bfff;
+}
+
+.btn {
   display: inline-block;
-  text-decoration: none;
-  color: #00ffcc;
+  color: #00ffc6;
   font-weight: bold;
-  font-size: 1.2rem;
-  transition: transform 0.2s ease;
-}
-.mod-card a:hover {
-  transform: translateX(4px);
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 </style>

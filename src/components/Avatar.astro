@@ -1,0 +1,75 @@
+---
+import { useTranslations, useTranslatedPath } from '../i18n/utils';
+import { defaultLang } from "../i18n/ui";
+
+const locale = Astro.currentLocale || defaultLang;
+const t = useTranslations(locale);
+const translatePath = useTranslatedPath(locale);
+---
+<div class="avatar-wrapper">
+  <img class="avatar" src="https://avatars.githubusercontent.com/u/32320534" alt={t('hero.avatarAlt')} />
+  <div class="avatar-tooltip">
+    {t('hero.tooltip')}<br>
+    <a href={translatePath("/contact/", locale)}>{t('hero.contact')} →</a>
+  </div>
+</div>
+
+<style>
+.avatar-wrapper {
+  position: fixed;
+  top: 0.25rem;
+  left: 1.5rem;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #00ffcc;
+  cursor: pointer;
+}
+
+.avatar-wrapper:hover {
+  height: 80px;
+  padding-bottom: 20px;
+}
+
+.avatar-wrapper:hover .avatar-tooltip {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.avatar-tooltip {
+  position: absolute;
+  z-index: 110;
+  top: 65px;
+  left: 0;
+  pointer-events: auto;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #cafff5;
+  padding: 1rem;
+  border: 1px solid #00ffcc;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-family: 'Orbitron', sans-serif;
+  white-space: normal;
+  word-break: break-word;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  display: none;
+  transform: scale(0.95);
+}
+
+.avatar-tooltip a {
+  color: #00ffcc;
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+</style>

@@ -1,0 +1,81 @@
+---
+import { useTranslations, useTranslatedPath } from '../i18n/utils';
+import { defaultLang } from '../i18n/ui';
+
+export interface Props {
+  variant?: "home" | "main";
+}
+
+const { variant = "home" } = Astro.props;
+const currentPage = Astro.url.pathname;
+const lang = Astro.currentLocale || defaultLang;
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const home = translatePath("/", lang)
+const mods = translatePath("/mods/", lang)
+const apps = translatePath("/apps/", lang)
+const contact = translatePath("/contact/", lang)
+---
+
+<nav class={`navbar ${variant}`}>
+  <ul>
+    <li class={currentPage == home ? "active" : ""}><a href={home}>{t('menu.home')}</a></li>
+    <li class={currentPage == mods ? "active" : ""}><a href={mods}>{t('menu.mods')}</a></li>
+    <li class={currentPage == apps ? "active" : ""}><a href={apps}>{t('menu.apps')}</a></li>
+    <li class={currentPage == contact ? "active" : ""}><a href={contact}>{t('menu.contact')}</a></li>
+  </ul>
+</nav>
+
+<style>
+.navbar {  
+  width: 100%;
+  padding: 1.5rem 1rem;
+  backdrop-filter: blur(6px);
+  z-index: 99;
+  transition: all 0.4s ease;
+  position: fixed;
+  top: 0;
+}
+
+.navbar.home {
+  background: rgba(0, 0, 0, 0);
+  border-bottom: 0;
+}
+
+.navbar.home.scrolled {
+  background: rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(0, 255, 198, 0.4);
+}
+
+.navbar.main {
+  background: rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(0, 255, 198, 0.4);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li.active a {
+  text-decoration: underline;
+  color: white;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #00ffc6;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+}
+</style>
