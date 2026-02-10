@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.9.3"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet"><title>Player Clone</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><link rel="stylesheet" href="/_astro/apps.8ip4ewuK.css">
+<style>.container[data-astro-cid-lbfvp5de]{margin-top:4.31rem;padding-top:2rem;display:grid;grid-template-columns:1fr 3fr 1fr;gap:2rem;background-color:#1e1e20}.mod-page[data-astro-cid-lbfvp5de]{color:#cafff5;width:100%;max-width:1200px;padding:2rem;background-color:#0009;box-shadow:0 0 20px #00ffc644;display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:2rem;border-radius:4px 4px 0 0}.mod-aside[data-astro-cid-lbfvp5de]{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;gap:2rem}.mod-main[data-astro-cid-lbfvp5de]{display:flex;flex-direction:column;min-width:400px}.mod-title[data-astro-cid-lbfvp5de]{color:#00ffc6;margin-bottom:1rem}.mod-image[data-astro-cid-lbfvp5de]{position:sticky;top:6.31rem;border-radius:.75rem;border:1px solid #00ffc6;width:100%}.btn-curseforge[data-astro-cid-lbfvp5de]{display:inline-block;margin-top:1rem;align-self:flex-end}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+.btn[data-astro-cid-55xpxy2s]{background:none;border:2px solid #00ffcc;color:#0fc;padding:.5rem 1.5rem;font-size:1rem;font-family:Orbitron,sans-serif;cursor:pointer;width:fit-content;z-index:3;border-radius:.5rem;transition:background-color .3s ease,color .3s ease,animation-play-state .3s ease}.btn-animation[data-astro-cid-55xpxy2s]{animation:bounce-arrow 1.5s infinite}.btn[data-astro-cid-55xpxy2s]:hover{background-color:#0fc;color:#000;animation-play-state:paused}@keyframes bounce-arrow{0%,to{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style><style>[data-astro-transition-scope="astro-3t37bhqs-1"] { view-transition-name: img-playerclone__en; }@layer astro { ::view-transition-old(img-playerclone__en) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(img-playerclone__en) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(img-playerclone__en) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(img-playerclone__en) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-3t37bhqs-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-3t37bhqs-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-3t37bhqs-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-3t37bhqs-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-3t37bhqs-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-3t37bhqs-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-3t37bhqs-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-3t37bhqs-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <div class="avatar-wrapper" data-astro-cid-vjqwbl62> <img class="avatar" src="https://avatars.githubusercontent.com/u/32320534" alt="Avatar Wipodev" data-astro-cid-vjqwbl62> <div class="avatar-tooltip" data-astro-cid-vjqwbl62> Interested in a custom mod?<br data-astro-cid-vjqwbl62> <a href="/en/contact/" data-astro-cid-vjqwbl62>Contact me →</a> </div> </div>  <nav class="lang-picker" data-astro-cid-dkurt46j> <ul data-astro-cid-dkurt46j> <li class data-astro-cid-dkurt46j> <a href="/mod/playerclone/" data-astro-cid-dkurt46j> Español </a> </li><li class="active" data-astro-cid-dkurt46j> <a href="/en/mod/playerclone/" data-astro-cid-dkurt46j> English </a> </li> </ul> </nav>   <nav class="navbar main" data-astro-cid-5blmo7yk> <ul data-astro-cid-5blmo7yk> <li class data-astro-cid-5blmo7yk><a href="/en/" data-astro-cid-5blmo7yk>Home</a></li> <li class data-astro-cid-5blmo7yk><a href="/en/mods/" data-astro-cid-5blmo7yk>Mods</a></li> <!-- <li class={currentPage == apps ? "active" : ""}><a href={apps}>{t('menu.apps')}</a></li> --> <li class data-astro-cid-5blmo7yk><a href="/en/contact/" data-astro-cid-5blmo7yk>Contact</a></li> </ul> </nav>   <div class="container" data-astro-cid-lbfvp5de> <aside data-astro-cid-lbfvp5de></aside> <main class="mod-page" data-astro-cid-lbfvp5de> <section class="mod-aside" data-astro-cid-lbfvp5de> <img src="/img/mods/playerclone.jpg" alt="Player Clone" class="mod-image" data-astro-cid-lbfvp5de data-astro-transition-scope="astro-3t37bhqs-1"> </section> <section class="mod-main" data-astro-cid-lbfvp5de> <h1 class="mod-title" data-astro-cid-lbfvp5de>Player Clone</h1> <p class="short" data-astro-cid-lbfvp5de>“Create player clones and unleash epic battles. Fight against yourself.”</p> <div class="markdown-content" data-astro-cid-lbfvp5de> <h2 id="-overview">🌌 Overview</h2>
+<p>Have you ever wondered what it would be like to fight alongside yourself… or against yourself?
+<strong>Player Clone</strong> brings that fantasy to life. With just a few simple commands, you can summon clones of any player and throw them into epic battles — free-for-all or team-based.
+Perfect for custom PvP arenas, strategy testing, or just chaotic fun.</p>
+<blockquote>
+<p>Your greatest enemy… might just be yourself.</p>
+</blockquote>
+<hr>
+<h2 id="️-features">⚙️ Features</h2>
+<ul>
+<li><strong>Instant Cloning:</strong> Create clones of any player with a single command.</li>
+<li><strong>Dynamic Battles:</strong> Launch Free-For-All (FFA) or team-based combat modes.</li>
+<li><strong>Full Control:</strong> Start, stop, or remove clones at any time.</li>
+<li><strong>Multiplayer Support:</strong> Works seamlessly in multiplayer environments.</li>
+<li><strong>Perfect for YouTubers &#x26; Mapmakers:</strong> Ideal for recording, events, or AI combat testing.</li>
+</ul>
+<hr>
+<h2 id="-mechanics--commands">🧠 Mechanics &#x26; Commands</h2>
+<h3 id="main-commands">Main Commands</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>/playerclone &#x3C;username></code></td><td>Creates a single clone of the specified player.</td></tr><tr><td><code>/playerclone &#x3C;username> &#x3C;amount></code></td><td>Creates multiple clones of that player.</td></tr><tr><td><code>/playerclone &#x3C;username> remove</code></td><td>Removes all clones with the given username.</td></tr><tr><td><code>/playerclone ffa</code></td><td>Starts a <strong>Free-For-All</strong> battle among all clones.</td></tr><tr><td><code>/playerclone team</code></td><td>Starts a <strong>Team Battle</strong> where each username fights as a group.</td></tr><tr><td><code>/playerclone stop</code></td><td>Stops the current battle.</td></tr><tr><td><code>/playerclone help</code></td><td>Displays all available commands.</td></tr></tbody></table>
+<hr>
+<h2 id="-how-to-use">🎮 How to Use</h2>
+<ol>
+<li>Install <strong>Forge</strong> for your compatible Minecraft version.</li>
+<li>Place the <code>.jar</code> file into your <code>mods</code> folder.</li>
+<li>Launch your world or server.</li>
+<li>Use <code>/playerclone</code> commands to create, manage, and remove clones.</li>
+<li>Enjoy battling against your own army or leading them to victory.</li>
+</ol>
+<hr>
+<h2 id="-compatibility">🧩 Compatibility</h2>
+<ul>
+<li>Compatible with <strong>Minecraft 1.19.2</strong>, <strong>1.20.1</strong>, and <strong>1.21</strong>.</li>
+<li>Works in <strong>singleplayer</strong> and <strong>multiplayer</strong> modes.</li>
+<li>No additional dependencies required.</li>
+</ul>
+<hr>
+<h2 id="-gallery">📸 Gallery</h2>
+<p><img src="/img/mods/playerclone_gallery1.png" alt="Player Clone Battle Arena">
+<em>“Your army awaits the fight.”</em></p>
+<p><img src="/img/mods/playerclone.jpg" alt="Multiple clones fighting">
+<em>“When everyone is you… no one is safe.”</em></p>
+<hr>
+<h2 id="️-notes">🗒️ Notes</h2>
+<div class="note warning" role="alert">
+<p>⚠️ This mod is under active development.</p>
+<p>Future versions will include advanced battle settings and custom training modes.</p>
+</div>
+<hr> </div> <a href="https://www.curseforge.com/minecraft/mc-mods/player-clone" target="_blank" class="btn-curseforge" data-astro-cid-lbfvp5de> <button type="button" class="btn " data-astro-cid-55xpxy2s> Ver en CurseForge </button>  </a> </section> </main> </div>  <footer data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>© 2025 Wipodev. All rights reserved.</p> </footer>  <script>
+  function attachScrollButtons() {
+    document.querySelectorAll("[data-target]").forEach(btn => {
+      if (btn.dataset.scrollReady) return;
+      btn.dataset.scrollReady = "true";
+
+      btn.addEventListener("click", () => {
+        const selector = btn.dataset.target;
+        const el = document.querySelector(selector);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  }
+
+  function setupNavbarScrollEffect() {
+    const navbar = document.querySelector(".navbar");
+    const modsSection = document.querySelector("#mods-cards");
+    if (!navbar) return;
+
+    function handleScroll() {
+      if (!modsSection) return;
+      const trigger = modsSection.offsetTop - 68;
+      if (window.scrollY >= trigger) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    }
+
+    window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  }
+
+  function initGlobalScripts() {
+    attachScrollButtons();
+    setupNavbarScrollEffect();
+  }
+
+  document.addEventListener("astro:page-load", initGlobalScripts);
+  document.addEventListener("astro:after-swap", initGlobalScripts);
+  initGlobalScripts();
+</script> </body></html> 
